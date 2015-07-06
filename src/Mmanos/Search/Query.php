@@ -31,6 +31,13 @@ class Query
 	 * @var array
 	 */
 	protected $columns;
+
+	/**
+	 * The fields to sort by.
+	 *
+	 * @var array
+	 */
+	protected $sort;
 	
 	/**
 	 * The maximum number of records to return.
@@ -180,6 +187,20 @@ class Query
 	{
 		$this->columns = is_array($columns) ? $columns : func_get_args();
 		
+		return $this;
+	}
+
+	/**
+	 * The fields to sort by.
+	 *
+	 * @param array $fields
+	 *
+	 * @return \Mmanos\Search\Query
+	 */
+	public function sort($fields)
+	{
+		$this->sort = $fields;
+
 		return $this;
 	}
 	
